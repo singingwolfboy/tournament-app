@@ -30,16 +30,30 @@ const SignUpForm: React.FC<Props> = ({ addContestant, contestants = [] }) => {
           <input
             type="text"
             placeholder="John Smith"
+            className="mx-3"
             {...register("name", {
               required: true,
               validate: { newContestant: (v) => !contestants.includes(v) },
             })}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        >
+          Submit
+        </button>
       </div>
-      {errors.name?.type === "required" && <p role="alert">Name is required</p>}
-      {errors.name?.type === "newContestant" && <p role="alert">Pick a different name</p>}
+      {errors.name?.type === "required" && (
+        <p role="alert" className="text-center">
+          Name is required
+        </p>
+      )}
+      {errors.name?.type === "newContestant" && (
+        <p role="alert" className="text-center">
+          Pick a different name
+        </p>
+      )}
     </form>
   );
 };

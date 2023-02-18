@@ -2,12 +2,12 @@ import * as React from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Home from "./Home";
 import Matches from "./Matches";
-import Admin from "./Admin"
+import Admin from "./Admin";
 
 export default function App() {
   return (
     <div>
-      <h1>Paper on the Rocks</h1>
+      <h1 className="text-2xl">Paper on the Rocks</h1>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -30,15 +30,30 @@ function Layout() {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav>
-        <ul>
+        <ul className="flex gap-1">
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              className="text-blue-600 hover:text-blue-700 transition duration-300"
+              to="/"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/matches">Matches</Link>
+            <Link
+              className="text-blue-600 hover:text-blue-700 transition duration-300"
+              to="/matches"
+            >
+              Matches
+            </Link>
           </li>
           <li>
-            <Link to="/admin">Admin</Link>
+            <Link
+              className="text-blue-600 hover:text-blue-700 transition duration-300"
+              to="/admin"
+            >
+              Admin
+            </Link>
           </li>
         </ul>
       </nav>

@@ -9,13 +9,12 @@ export default function Register() {
 
   return (
     <div>
-      <h2>Sign Up</h2>
       <SignUpForm addContestant={addContestant} contestants={contestants} />
-      <h3>Contestants</h3>
+      <h3 className="text-lg">Contestants</h3>
       {contestants.length === 0 ? (
         <p>None yet</p>
       ) : (
-        <ul>
+        <ul className="list-disc ml-5">
           {contestants.map((name, i) => (
             <li key={i}>{name}</li>
           ))}

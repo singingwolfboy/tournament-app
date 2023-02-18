@@ -9,10 +9,15 @@ export default function Home() {
     [new Date("2023-02-17"), "Enola Holmes"],
   ];
   return (
-    <div>
-      <RecentWinners matchResults={matchResults} />
-      <hr />
-      <Register />
+    <div className="flex gap-5">
+      <div>
+        <h2 className="text-xl text-center">Most recent winners</h2>
+        <RecentWinners matchResults={matchResults} />
+      </div>
+      <div>
+        <h2 className="text-xl text-center">Sign up</h2>
+        <Register />
+      </div>
     </div>
   );
 }
