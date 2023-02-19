@@ -16,6 +16,14 @@ const SignUpForm: React.FC<Props> = ({ addContestant, contestants = [] }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
+  const hasError = Object.keys(errors).length > 0;
+  const errorMessages: { [key: string]: string } = {
+    required: "Name is required",
+    newContestant: "Pick a different name",
+  };
+  const errorType = errors.name?.type;
+  const errorMessage =
+    typeof errorType === "string" ? errorMessages[errorType] : "";
 
   const onSubmit = handleSubmit((data, event) => {
     event?.target.reset();
@@ -44,16 +52,9 @@ const SignUpForm: React.FC<Props> = ({ addContestant, contestants = [] }) => {
           Submit
         </button>
       </div>
-      {errors.name?.type === "required" && (
-        <p role="alert" className="text-center">
-          Name is required
-        </p>
-      )}
-      {errors.name?.type === "newContestant" && (
-        <p role="alert" className="text-center">
-          Pick a different name
-        </p>
-      )}
+      <p role={hasError ? "alert" : undefined} className="text-center h-4">
+        {errorMessage}
+      </p>
     </form>
   );
 };

@@ -9,7 +9,10 @@ export default function Register() {
 
   return (
     <div>
-      <SignUpForm addContestant={addContestant} contestants={contestants} />
+      <div className="mb-5">
+        <SignUpForm addContestant={addContestant} contestants={contestants} />
+      </div>
+
       <h3 className="text-lg">Contestants</h3>
       {contestants.length === 0 ? (
         <p>None yet</p>
