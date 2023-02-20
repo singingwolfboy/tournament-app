@@ -29,7 +29,7 @@ const Admin: React.FC<Props> = ({
     setTiers([makeMatches(contestants)]);
   };
   return (
-    <PasswordProtected password="123">
+    <PasswordProtected password="hunter2">
       <div className="flex justify-center">
         <div>
           <h3 className="text-lg">Contestants</h3>
