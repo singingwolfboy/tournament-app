@@ -13,3 +13,8 @@ using `useState` hooks and passed down through components; the app is
 not complex enough to warrant a more complex system like Redux.
 Forms are implemented using [React Hook Form](https://react-hook-form.com).
 Very basic styling is implemented using [Tailwind](https://tailwindcss.com).
+
+## Running
+
+Clone the repo, and run `npm install` to install the dependencies.
+Then run `npm run start` to start the dev server.
