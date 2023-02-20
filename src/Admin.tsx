@@ -76,7 +76,7 @@ const Admin: React.FC<Props> = ({
             />
             {matchData.length > 1 && (
               <button
-                className="btn"
+                className="btn mx-auto block"
                 disabled={
                   !matchData.every((match) => match.winner || !match.second)
                 }

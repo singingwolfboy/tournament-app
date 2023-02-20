@@ -30,7 +30,7 @@ const Versus: React.FC<Props> = ({
   return (
     <div className="flex gap-x-1">
       <span
-        className={`text-right basis-1/2 ${
+        className={`text-right basis-1/2 whitespace-nowrap ${
           winner === "FIRST" && winnerClassNames
         }`}
       >
@@ -46,7 +46,7 @@ const Versus: React.FC<Props> = ({
         <span className="text-center grow-0">vs</span>
       )}
       <span
-        className={`text-left basis-1/2 ${
+        className={`text-left basis-1/2 whitespace-nowrap ${
           winner === "SECOND" && winnerClassNames
         }`}
       >
