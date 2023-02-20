@@ -7,7 +7,7 @@ import Admin from "./Admin";
 export default function App() {
   return (
     <div>
-      <h1 className="text-2xl">Paper on the Rocks</h1>
+      <h1 className="text-2xl text-center">Paper on the Rocks</h1>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -30,7 +30,7 @@ function Layout() {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav>
-        <ul className="flex gap-1">
+        <ul className="flex gap-2 justify-center">
           <li>
             <Link
               className="text-blue-600 hover:text-blue-700 transition duration-300"
@@ -58,7 +58,7 @@ function Layout() {
         </ul>
       </nav>
 
-      <hr />
+      <hr className="mb-4" />
 
       {/* An <Outlet> renders whatever child route is currently active,
           so you can think about this <Outlet> as a placeholder for
