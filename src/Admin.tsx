@@ -1,9 +1,10 @@
 import * as React from "react";
+import PasswordProtected from "./PasswordProtected";
 
 export default function Admin() {
   return (
-    <div>
+    <PasswordProtected password="123">
       <h2>Admin</h2>
-    </div>
+    </PasswordProtected>
   );
 }
