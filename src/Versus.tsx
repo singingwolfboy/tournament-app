@@ -1,10 +1,23 @@
 import * as React from "react";
 import { MatchData } from "./types";
 
-const Versus: React.FC<MatchData> = ({ first, second, winner }) => {
+interface Props extends MatchData {
+  editable?: boolean;
+  setWinner?: (winner: "FIRST" | "SECOND") => void;
+}
+
+const Versus: React.FC<Props> = ({
+  first,
+  second,
+  winner,
+  editable = false,
+  setWinner = () => {},
+}) => {
   if (second === undefined) {
     return (
-      <p className="text-center italic">{first} has no opponent, and moves on automatically</p>
+      <p className="text-center italic">
+        {first} has no opponent, and moves on automatically
+      </p>
     );
   }
   const winnerClassNames = "text-green-600";
@@ -24,7 +37,14 @@ const Versus: React.FC<MatchData> = ({ first, second, winner }) => {
         {winner === "FIRST" && "🎉 "}
         {first}
       </span>
-      <span className="text-center grow-0">vs</span>
+      {editable ? (
+        <span className="text-center grow-0 whitespace-nowrap">
+          <button className="inline" onClick={() => setWinner("FIRST")}>⬅️</button>
+          <button className="inline" onClick={() => setWinner("SECOND")}>➡️</button>
+        </span>
+      ) : (
+        <span className="text-center grow-0">vs</span>
+      )}
       <span
         className={`text-left basis-1/2 ${
           winner === "SECOND" && winnerClassNames

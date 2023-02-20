@@ -21,6 +21,7 @@ const PasswordProtected: React.FC<Props> = ({
   const {
     register,
     handleSubmit,
+    setFocus,
     setError,
     clearErrors,
     formState: { errors },
@@ -32,6 +33,10 @@ const PasswordProtected: React.FC<Props> = ({
       setError("root.wrongPassword", { type: "custom" });
     }
   });
+
+  React.useEffect(() => {
+    setFocus("password");
+  }, [setFocus]);
 
   if (showChildren) {
     return children;

@@ -5,9 +5,16 @@ import { MatchData } from "./types";
 interface Props {
   number: number;
   matches: MatchData[];
+  editable?: boolean;
+  setMatch?: (match: MatchData, index: number) => void;
 }
 
-const Tier: React.FC<Props> = ({ number, matches }) => (
+const Tier: React.FC<Props> = ({
+  number,
+  matches,
+  editable = false,
+  setMatch = () => {},
+}) => (
   <div>
     <h2 className="text-center text-xl">Tier {number}</h2>
     {matches.length === 0 ? (
@@ -15,8 +22,13 @@ const Tier: React.FC<Props> = ({ number, matches }) => (
     ) : (
       <ul>
         {matches.map((match, i) => (
-          <li>
-            <Versus key={i} {...match} />
+          <li key={i}>
+            <Versus
+              key={i}
+              editable={editable}
+              setWinner={(winner: "FIRST" | "SECOND") => setMatch({ ...match, winner }, i)}
+              {...match}
+            />
           </li>
         ))}
       </ul>

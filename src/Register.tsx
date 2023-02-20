@@ -1,12 +1,12 @@
 import * as React from "react";
 import SignUpForm from "./SignUpForm";
 
-export default function Register() {
-  const [contestants, setContestants] = React.useState<string[]>([]);
-  const addContestant = (name: string) => {
-    setContestants([name, ...contestants]);
-  };
+interface Props {
+    contestants: string[];
+    addContestant: (name: string) => void;
+}
 
+const Register: React.FC<Props> = ({contestants, addContestant}) => {
   return (
     <div>
       <div className="mb-5">
@@ -26,3 +26,5 @@ export default function Register() {
     </div>
   );
 }
+
+export default Register

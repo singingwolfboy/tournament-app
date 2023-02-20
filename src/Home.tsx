@@ -2,7 +2,12 @@ import * as React from "react";
 import Register from "./Register";
 import RecentWinners from "./RecentWinners";
 
-export default function Home() {
+interface Props {
+    contestants: string[];
+    addContestant: (name: string) => void;
+}
+
+const Home: React.FC<Props> = ({contestants, addContestant}) => {
   const matchResults: [Date, string][] = [
     [new Date("2023-02-19"), "Charlie"],
     [new Date("2023-02-18"), "Sassafrass"],
@@ -16,8 +21,10 @@ export default function Home() {
       </div>
       <div className="">
         <h2 className="text-xl text-center">Sign up</h2>
-        <Register />
+        <Register contestants={contestants} addContestant={addContestant} />
       </div>
     </div>
   );
 }
+
+export default Home;

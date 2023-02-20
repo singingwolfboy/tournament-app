@@ -14,6 +14,7 @@ const SignUpForm: React.FC<Props> = ({ addContestant, contestants = [] }) => {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors },
   } = useForm<FormData>();
   const hasError = Object.keys(errors).length > 0;
@@ -29,6 +30,10 @@ const SignUpForm: React.FC<Props> = ({ addContestant, contestants = [] }) => {
     event?.target.reset();
     addContestant(data.name);
   });
+
+  React.useEffect(() => {
+    setFocus("name");
+  }, [setFocus]);
 
   return (
     <form onSubmit={onSubmit}>
